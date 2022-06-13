@@ -1,61 +1,55 @@
-# import os
+import tensorflow as tf
+import numpy as np
+from PIL import Image
+import os
+import streamlit as st
 
-# import numpy as np
+# command = streamlit run my_app/streamlit_app.py from the root of the directory
+model = tf.keras.models.load_model('static/model5.h5')
 
-# from tensorflow.keras.models import load_model
+uploaded_file = st.file_uploader("Upload Image", 'gif')
 
-# from tensorflow.keras.preprocessing.image import load_img,img_to_array
+if uploaded_file:
 
-# from PIL import Image
+    image = Image.open(uploaded_file) #.convert('RGB')
+    image_array  = tf.keras.preprocessing.image.img_to_array(image)
+    image = tf.image.resize(image_array, (51, 51))
+    image = image / 255
+    image = tf.expand_dims(image, axis = 0)
+    result = model.predict(image)
 
-# current_path = os.getcwd()
+    st.markdown(result)
 
-# category_path = os.path.join(current_path, '../static/images.gif')
-
-# predictor_model = load_model('../static/model5.h5')
-
-# def save_uploaded_file(uploaded_file):
-
-#     try:
-
-#         with open(os.path.join('../static/images',uploaded_file.name),'wb') as f:
-
-#             f.write(uploaded_file.getbuffer())
-
-#         return 1
-
-#     except:
-
-#         return 0
 
 # def predictor(img_path):
 
-#     img = load_img(img_path, target_size=(51,51,1), color_mode='grayscale')
+#     img = tf.keras.preprocessing.image.load_img(img_path, target_size=(51,51,1), color_mode='grayscale')
 
-#     img = img_to_array(img)
+#     img = tf.keras.preprocessing.image.img_to_array(img)
 
 #     img = np.expand_dims(img,axis = 0)
 
-#     prediction = predictor_model.predict(img)
+#     prediction = model.predict(img)
 
 #     return prediction[0][0]
 
 # if uploaded_file is not None:
 
-#     if save_uploaded_file(uploaded_file):
+#     #if save_uploaded_file(uploaded_file):
 
-#         # display the image
+#     # display the image
 
-#         display_image = Image.open(uploaded_file)
+#     display_image = Image.open(uploaded_file)
 
-#         st.image(display_image)
+#     st.image(display_image)
 
-#         prediction = predictor(os.path.join('static/images',uploaded_file.name))
+#     prediction = predictor(os.path.join('../static/images',uploaded_file.name))
 
-#         os.remove('static/images/'+uploaded_file.name)
 
-#         # deleting uploaded saved picture after prediction
+#     os.remove('../static/images/'+uploaded_file.name)
 
-#         # drawing graphs
+#     # deleting uploaded saved picture after prediction
 
-#         st.text(f'Prediction: {prediction}')
+#     # drawing graphs
+
+#     st.text(f'Prediction: {prediction}')
