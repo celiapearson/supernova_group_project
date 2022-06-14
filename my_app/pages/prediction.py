@@ -5,7 +5,7 @@ import os
 import streamlit as st
 
 # command = streamlit run my_app/streamlit_app.py from the root of the directory
-model = tf.keras.models.load_model('static/model5.h5')
+model = tf.keras.models.load_model('static/DenseNet121.h5')
 
 uploaded_file = st.file_uploader("Upload Image", "gif")
 
