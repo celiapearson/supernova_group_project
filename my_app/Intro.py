@@ -1,12 +1,13 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pages.prediction import *
+from pages.Prediction import *
 
 
 sns.set_theme(style="darkgrid")
 sns.set()
 
+st.set_page_config(page_title = "Intro")
 
 # uploaded_file = st.file_uploader("Upload Image")
 
@@ -24,7 +25,7 @@ st.markdown(""":collision::collision::collision::collision:
             :collision:""")
 first_para = '''<p style="font-family:sans-serif; font-size: 18px; color: white; ">This project was created by 4 students
         from the Le Wagon Data Science Bootcamp.
-        Our model's name is Sue, or Dr Susan Panova if you're nasty.
+        Our model's name is Sue, or Dr Susan Panova.
         Using Sue, we will be able to look at telescopic images
         of space to detect whether there is a supernova present or not.</p>'''
 st.markdown(first_para, unsafe_allow_html=True)

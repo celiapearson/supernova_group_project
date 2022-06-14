@@ -19,12 +19,12 @@ if uploaded_file:
     result = model.predict(image)[0][0]
 
 #supernova = ["Woohoo!! That's definitely a supernova, congrats!", "Yup, looks like a supernova to me", "Oh yeah, that's a big ol' supernova"]
-#not_supernova = [""]
+#not_supernova = ["Hmmm... I'm afraid this doesn't look like a supernova to me", "Nope! Not a supernova this time", "This doesn't look ANYTHING like a supernova - try again!"]
 
     # if result >= 0.5:
-    #     f"Random choice of list (not supernova): {result}"
+    #     f"Sue's prediction {result}: '{(random.choice(not_supernova))}'"
     # else:
-    #     f"Random choice of list (supernova): {result}"
+    #     f"Sue's prediction {result}: '{(random.choice(supernova))}'"
 
     st.markdown(result)
 
