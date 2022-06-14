@@ -18,6 +18,9 @@ if uploaded_file:
     image = tf.expand_dims(image, axis = 0)
     result = model.predict(image)[0][0]
 
+#supernova = ["Woohoo!! That's definitely a supernova, congrats!", "Yup, looks like a supernova to me", "Oh yeah, that's a big ol' supernova"]
+#not_supernova = [""]
+
     # if result >= 0.5:
     #     f"Random choice of list (not supernova): {result}"
     # else:
