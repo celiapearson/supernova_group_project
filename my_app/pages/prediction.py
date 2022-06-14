@@ -7,7 +7,7 @@ import random
 
 # command = streamlit run my_app/streamlit_app.py from the root of the directory
 
-prediction_title = '''<p style="font-family:sans-serif; color: white; font-size: 42px;">Dr. Sue's Office :trophy: </p>'''
+prediction_title = '''<p style="font-family:sans-serif; color: white; font-size: 42px;">Dr. Sue's Office 👩‍🚀 </p>'''
 st.markdown(prediction_title, unsafe_allow_html=True)
 
 st.markdown(""":collision::collision::collision::collision:
