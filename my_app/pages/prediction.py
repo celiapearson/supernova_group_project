@@ -7,7 +7,7 @@ import streamlit as st
 # command = streamlit run my_app/streamlit_app.py from the root of the directory
 model = tf.keras.models.load_model('static/model5.h5')
 
-uploaded_file = st.file_uploader("Upload Image", 'gif')
+uploaded_file = st.file_uploader("Upload Image", "gif")
 
 if uploaded_file:
 
@@ -16,7 +16,12 @@ if uploaded_file:
     image = tf.image.resize(image_array, (51, 51))
     image = image / 255
     image = tf.expand_dims(image, axis = 0)
-    result = model.predict(image)
+    result = model.predict(image)[0][0]
+
+    # if result >= 0.5:
+    #     f"Random choice of list (not supernova): {result}"
+    # else:
+    #     f"Random choice of list (supernova): {result}"
 
     st.markdown(result)
 
