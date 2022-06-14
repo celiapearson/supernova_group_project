@@ -44,7 +44,7 @@ st.markdown(fourth_para, unsafe_allow_html=True)
 
 # text over upload button "Upload Image"
 
-main_bg = "/Users/Doug/code/celiapearson/supernova_group_project/my_app/pages/sn_2018gv-hubble.gif"
+main_bg = "my_app/pages/sn_2018gv-hubble.gif"
 
 import base64
 

@@ -29,8 +29,7 @@ pred_para_2 = '''<p style="font-family:sans-serif; font-size: 18px; color: white
 a fraction of the time a human astronomer could!<p>'''
 st.markdown(pred_para_2, unsafe_allow_html=True)
 
-model = tf.keras.models.load_model('static/DenseNet121.h5')
-
+model = tf.keras.models.load_model('static/hs_model.h5')
 
 print(model.summary())
 
@@ -38,7 +37,7 @@ uploaded_file = st.file_uploader("", "png")
 
 if uploaded_file:
 
-    image = Image.open(uploaded_file).convert('RGB')
+    image = Image.open(uploaded_file) #.convert('grayscale')
     image_array  = tf.keras.preprocessing.image.img_to_array(image)
     image = tf.image.resize(image_array, [51, 51])
     image = image / 255
@@ -49,14 +48,13 @@ if uploaded_file:
     not_supernova = ["Hmmm... I'm afraid this doesn't look like a supernova to me", "Nope! Not a supernova this time", "This doesn't look ANYTHING like a supernova - try again!"]
 
     if result >= 0.5:
-        st.markdown(f"Sue's prediction {result}: '{(random.choice(not_supernova))}'")
+        st.markdown(f"Sue's prediction {round(result,4)}: '{(random.choice(not_supernova))}'")
     else:
-        st.markdown(f"Sue's prediction {result}: '{(random.choice(supernova))}'")
+        st.markdown(f"Sue's prediction {round(result,4)}: '{(random.choice(supernova))}'")
 
+    #st.write(image)
 
-
-
-main_bg = "/Users/Doug/code/celiapearson/supernova_group_project/my_app/pages/sn_2018gv-hubble.gif"
+main_bg = "my_app/pages/sn_2018gv-hubble.gif"
 
 import base64
 
