@@ -7,13 +7,11 @@ from pages.Prediction import *
 sns.set_theme(style="darkgrid")
 sns.set()
 
-st.set_page_config(page_title = "Intro")
-
 # uploaded_file = st.file_uploader("Upload Image")
 
 supernova_title = '<p style="font-family:sans-serif; color: white; font-size: 42px;">Supernova Classification</p>'
 st.markdown(supernova_title, unsafe_allow_html=True)
-#st.title("Supernova Classification")
+
 st.markdown(""":collision::collision::collision::collision:
             :collision::collision::collision::collision:
             :collision::collision::collision::collision:
@@ -23,6 +21,7 @@ st.markdown(""":collision::collision::collision::collision:
             :collision::collision::collision::collision:
             :collision::collision::collision::collision:
             :collision:""")
+
 first_para = '''<p style="font-family:sans-serif; font-size: 18px; color: white; ">This project was created by 4 students
         from the Le Wagon Data Science Bootcamp.
         Our model's name is Sue, or Dr Susan Panova.
@@ -35,6 +34,13 @@ second_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px
         and matter are released. Dark energy and dark matter make up around 95% of
         the universe and still remain the biggest mystery of space.<p>'''
 st.markdown(second_para, unsafe_allow_html=True)
+
+third_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px;"> Special thanks to:
+Mark, Luke, Kenza and Ollie<p>'''
+st.markdown(third_para, unsafe_allow_html=True)
+
+fourth_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px;"> Click on the next page to proceed to Dr Panova's office...<p>'''
+st.markdown(fourth_para, unsafe_allow_html=True)
 
 # text over upload button "Upload Image"
 
@@ -62,3 +68,6 @@ def background_image_style(path):
     return style
 
 st.write(background_image_style(main_bg), unsafe_allow_html=True)
+
+
+#button = st.button('Next Page')
