@@ -1,52 +1,16 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-from pages.Prediction import *
+from my_app.pages.Prediction import *
+import base64
+from bokeh.models.widgets import Div
 
+### STRUCTURE/BG ###
 
 sns.set_theme(style="darkgrid")
 sns.set()
 
-# uploaded_file = st.file_uploader("Upload Image")
-
-supernova_title = '<p style="font-family:sans-serif; color: white; font-size: 42px;">Supernova Classification</p>'
-st.markdown(supernova_title, unsafe_allow_html=True)
-
-st.markdown(""":collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision::collision::collision::collision:
-            :collision:""")
-
-first_para = '''<p style="font-family:sans-serif; font-size: 18px; color: white; ">This project was created by 4 students
-        from the Le Wagon Data Science Bootcamp.
-        Our model's name is Sue, or Dr Susan Panova.
-        Using Sue, we will be able to look at telescopic images
-        of space to detect whether there is a supernova present or not.</p>'''
-st.markdown(first_para, unsafe_allow_html=True)
-
-second_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px;">This is important for astronomers as supernovae are the largest
-        explosion that humans know of. As a result, massive amounts of dark energy
-        and matter are released. Dark energy and dark matter make up around 95% of
-        the universe and still remain the biggest mystery of space.<p>'''
-st.markdown(second_para, unsafe_allow_html=True)
-
-third_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px;"> Special thanks to:
-Mark, Luke, Kenza and Ollie<p>'''
-st.markdown(third_para, unsafe_allow_html=True)
-
-fourth_para = '''<p style="font-family:sans-serif; color: white; font-size: 18px;"> Click on the next page to proceed to Dr Panova's office...<p>'''
-st.markdown(fourth_para, unsafe_allow_html=True)
-
-# text over upload button "Upload Image"
-
-main_bg = "my_app/pages/sn_2018gv-hubble.gif"
-
-import base64
+main_bg = "my_app/background_image3.jpg"
 
 @st.cache
 def load_image(path):
@@ -60,8 +24,8 @@ def background_image_style(path):
     style = f'''
     <style>
     .stApp {{
-        background-image: url("data:image/gif;base64,{encoded}");
-        background-size: cover; opacity: 1
+        background-image: url("data:image/jpg;base64,{encoded}");
+        background-size: cover
     }}
     </style>
     '''
@@ -70,4 +34,59 @@ def background_image_style(path):
 st.write(background_image_style(main_bg), unsafe_allow_html=True)
 
 
-#button = st.button('Next Page')
+### CONTENT ###
+
+supernova_title = '''<p style="font-family:Verdana; color: white; font-size: 42px;">
+    Identifying Supernovas using Deep Learning ⭐💥</p>'''
+st.markdown(supernova_title, unsafe_allow_html=True)
+
+first_para = '''<p style="font-family:Verdana; font-size: 18px; color: white">
+    Supernovas (or supernovae) are likely to hold the keys to humankind's
+    understanding of dark energy - a mysterious force that forms 95% of the
+    universe's total energy and appears to be immune to gravitational forces.</p>'''
+st.markdown(first_para, unsafe_allow_html=True)
+
+first_para2 = '''<p style="font-family:Verdana; font-size: 18px; color: white">
+    This means that the study of supernovas could ultimately lead us to knowing
+    the fate of the universe... and even the meaning of life itself.....<br><hr></p>'''
+st.markdown(first_para2, unsafe_allow_html=True)
+
+sue_header = '''<p style="font-family:Verdana; color: white; font-size: 28px;">
+    The Model (aka Sue)</p>'''
+st.markdown(sue_header, unsafe_allow_html=True)
+
+second_para = '''<p style="font-family:Verdana; color: white; font-size: 18px">
+    Our Deep Learning model's name is Sue (or Dr. Susan Panova, to use her legal
+    name), and she was trained on over 180,000 telescopic images extraterrestrial
+    artifacts, and as a result can succesfully identify which images depict
+    supernovas!<p>'''
+st.markdown(second_para, unsafe_allow_html=True)
+
+third_para = '''<p style="font-family:Verdana; color: white; font-size: 18px">
+    Click below to proceed to Sue's office and see what she
+    thinks of our images...<p>'''
+
+st.markdown(third_para, unsafe_allow_html=True)
+
+st.write(f'''
+    <a target="_self" href="http://localhost:8501/Prediction">
+        <button>
+            to Dr. Panova's Office
+        </button>
+    </a>
+    ''',
+    unsafe_allow_html=True
+)
+
+fourth_para = '''<p style="font-family:Verdana; color: white; font-size: 14px">
+    <hr>This project was created by students of the Le Wagon Data Science Bootcamp
+    in London.<p>'''
+st.markdown(fourth_para, unsafe_allow_html=True)
+
+fifth_para = '''<p style="font-family:Verdana; color: white; font-size: 14px">
+    Special thanks to: Mark, Luke, Kenza and Ollie<p>'''
+st.markdown(fifth_para, unsafe_allow_html=True)
+
+sixth_para = '''<p style="font-family:Verdana; color: white; font-size: 14px">
+    Citations....<p>'''
+st.markdown(sixth_para, unsafe_allow_html=True)
