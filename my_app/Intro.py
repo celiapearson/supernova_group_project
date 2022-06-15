@@ -1,14 +1,6 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-from my_app.pages.Prediction import *
+from pages.Prediction import *
 import base64
-from bokeh.models.widgets import Div
-
-### STRUCTURE/BG ###
-
-sns.set_theme(style="darkgrid")
-sns.set()
 
 main_bg = "my_app/background_image3.jpg"
 
