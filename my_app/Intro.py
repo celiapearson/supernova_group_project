@@ -61,7 +61,7 @@ third_para = '''<p style="font-family:Verdana; color: white; font-size: 18px">
 st.markdown(third_para, unsafe_allow_html=True)
 
 st.write(f'''
-    <a target="_self" href="http://localhost:8501/Prediction">
+    <a target="_self" href="https://share.streamlit.io/celiapearson/supernova_group_project/my_app/Intro.py/Prediction">
         <button>
             to Dr. Panova's Office
         </button>
