@@ -37,7 +37,7 @@ uploaded_file = st.file_uploader("", "png")
 
 if uploaded_file:
 
-    image = Image.open(uploaded_file) #.convert('grayscale')
+    image = Image.open(uploaded_file).convert('RGB')
     image_array  = tf.keras.preprocessing.image.img_to_array(image)
     image = tf.image.resize(image_array, [51, 51])
     image = image / 255
