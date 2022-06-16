@@ -86,7 +86,3 @@ st.markdown(fourth_para, unsafe_allow_html=True)
 fifth_para = '''<p style="font-family:Verdana; color: white; font-size: 14px">
     Special thanks to: Mark, Luke, Kenza and Ollie<p>'''
 st.markdown(fifth_para, unsafe_allow_html=True)
-
-sixth_para = '''<p style="font-family:Verdana; color: white; font-size: 14px">
-    Citations....<p>'''
-st.markdown(sixth_para, unsafe_allow_html=True)

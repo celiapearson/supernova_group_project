@@ -66,9 +66,12 @@ if uploaded_file:
     not_supernova = ["Hmmm... I'm afraid this doesn't look like a supernova to me", "Nope! Not a supernova this time", "This doesn't look ANYTHING like a supernova - try again!"]
 
     if result >= 0.6:
-        st.markdown(f" ### Sue's prediction: Supernova ({round(float(result),4)}) — she says '{(random.choice(supernova))}'")
+        st.markdown(f""" ### Sue's prediction: Supernova :star2: ({round(float(result),4)}) — she says...
+                    '{(random.choice(supernova))}'""")
         st.balloons()
     elif result <= 0.4:
-        st.markdown(f" ### Sue's prediction: Not a supernova ({round(float(result),4)}) — she says '{(random.choice(not_supernova))}'")
+        st.markdown(f""" ### Sue's prediction: Not a supernova :disappointed: ({round(float(result),4)}) — she says...
+                    '{(random.choice(not_supernova))}'""")
     else:
-        st.markdown(f" ### Sue's prediction: Inconclusive ({round(float(result),4)}) — she says '{(random.choice(not_sure))}'")
+        st.markdown(f""" ### Sue's prediction: Inconclusive :thinking_face: ({round(float(result),4)}) — she says...
+                    '{(random.choice(not_sure))}'""")
