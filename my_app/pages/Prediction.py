@@ -10,13 +10,14 @@ import base64
 
 main_bg = "my_app/background_image3.jpg"
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def load_image(path):
     with open(path, 'rb') as f:
         data = f.read()
     encoded = base64.b64encode(data).decode()
     return encoded
 
+@st.cache(suppress_st_warning=True)
 def background_image_style(path):
     encoded = load_image(path)
     style = f'''
@@ -29,7 +30,11 @@ def background_image_style(path):
     '''
     return style
 
-st.write(background_image_style(main_bg), unsafe_allow_html=True)
+@st.cache(suppress_st_warning=True)
+def write_bg(main_bg):
+    st.write(background_image_style(main_bg), unsafe_allow_html=True)
+
+write_bg(main_bg)
 
 
 ### CONTENT ###
