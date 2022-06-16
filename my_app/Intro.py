@@ -1,14 +1,6 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-from my_app.pages.Prediction import *
+from pages.Prediction import *
 import base64
-from bokeh.models.widgets import Div
-
-### STRUCTURE/BG ###
-
-sns.set_theme(style="darkgrid")
-sns.set()
 
 main_bg = "my_app/background_image3.jpg"
 
@@ -69,7 +61,7 @@ third_para = '''<p style="font-family:Verdana; color: white; font-size: 18px">
 st.markdown(third_para, unsafe_allow_html=True)
 
 st.write(f'''
-    <a target="_self" href="http://localhost:8501/Prediction">
+    <a target="_self" href="https://share.streamlit.io/celiapearson/supernova_group_project/my_app/Intro.py/Prediction">
         <button>
             to Dr. Panova's Office
         </button>
